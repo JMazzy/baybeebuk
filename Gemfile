@@ -11,6 +11,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 gem 'devise'
+gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry-byebug'
