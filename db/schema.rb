@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713162628) do
+ActiveRecord::Schema.define(version: 20160713184607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "memories", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "person_id",   null: false
+    t.string   "title",       null: false
+    t.text     "body"
+    t.date     "memory_date", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["memory_date"], name: "index_memories_on_memory_date", using: :btree
+    t.index ["person_id"], name: "index_memories_on_person_id", using: :btree
+    t.index ["user_id"], name: "index_memories_on_user_id", using: :btree
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "first_name",   null: false
+    t.string   "middle_name"
+    t.string   "last_name",    null: false
+    t.date     "birth_date",   null: false
+    t.string   "birth_place",  null: false
+    t.float    "birth_weight", null: false
+    t.string   "gender"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["birth_date"], name: "index_people_on_birth_date", using: :btree
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "parent_id",  null: false
+    t.integer  "child_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id", "child_id"], name: "index_relationships_on_parent_id_and_child_id", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,7 +62,9 @@ ActiveRecord::Schema.define(version: 20160713162628) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "person_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["person_id"], name: "index_users_on_person_id", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

@@ -18,7 +18,7 @@
   - birth_place
   - birth_weight
   - gender
-  - avatar
+  - (avatar) add later
 
 #### UserPerson
   - id
