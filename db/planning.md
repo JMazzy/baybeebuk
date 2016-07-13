@@ -1,12 +1,12 @@
 ## Database Schema Plan
 
-User
+#### User
   - id
   - email (string)
   - [devise stuff]
 
 
-Person
+#### Person
   - id
   - first_name
   - middle_name
@@ -18,19 +18,20 @@ Person
   - gender
 
 
-UserPerson
+#### UserPerson
   - id
   - user_id
   - child_id
   - relationship
 
 
-Photo (stored Amazon AWS)
+#### Photo (stored Amazon AWS)
   - id
+  - source
   - caption
 
 
-Memory
+#### Memory
   - id
   - user_id
   - child_id
@@ -39,7 +40,7 @@ Memory
   - memory_date
 
 
-MemoryPhoto
+#### MemoryPhoto
   - id
   - memory_id
   - photo_id
