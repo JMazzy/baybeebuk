@@ -5,6 +5,7 @@ User
   - email (string)
   - [devise stuff]
 
+
 Person
   - id
   - first_name
@@ -16,15 +17,18 @@ Person
   - birth_weight
   - gender
 
+
 UserPerson
   - id
   - user_id
   - child_id
   - relationship
 
+
 Photo (stored Amazon AWS)
   - id
   - caption
+
 
 Memory
   - id
@@ -33,6 +37,7 @@ Memory
   - title
   - body
   - memory_date
+
 
 MemoryPhoto
   - id
