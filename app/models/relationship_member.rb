@@ -1,0 +1,2 @@
+class RelationshipMember < ApplicationRecord
+end

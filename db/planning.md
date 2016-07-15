@@ -27,8 +27,8 @@
 
 #### Relationship
   - id
-  - parent_id
-  - child_id
+  - person_id
+  - relation_id
 
 #### Memory
   - id

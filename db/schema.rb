@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713184607) do
+ActiveRecord::Schema.define(version: 20160715174758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,28 @@ ActiveRecord::Schema.define(version: 20160713184607) do
     t.index ["birth_date"], name: "index_people_on_birth_date", using: :btree
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "parent_id",  null: false
-    t.integer  "child_id",   null: false
+  create_table "relationship_members", force: :cascade do |t|
+    t.integer  "relationship_id"
+    t.integer  "person_id"
+    t.string   "role"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["relationship_id", "person_id"], name: "index_relationship_members_on_relationship_id_and_person_id", unique: true, using: :btree
+    t.index ["role"], name: "index_relationship_members_on_role", using: :btree
+  end
+
+  create_table "relationship_types", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parent_id", "child_id"], name: "index_relationships_on_parent_id_and_child_id", unique: true, using: :btree
+    t.index ["name"], name: "index_relationship_types_on_name", unique: true, using: :btree
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_id"], name: "index_relationships_on_type_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
