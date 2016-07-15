@@ -20,6 +20,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
 end
 
 group :development do
