@@ -69,16 +69,24 @@ RelationshipMember.create(
   role: "daughter"
 )
 
-Memory.create(
+mem = Memory.create(
   user_id: user.id,
-  person_id: little_jimmy.id,
   title: "Tooth knocked out",
   body: "Little Jimmy fell off his bike and his front teeth came out.",
   memory_date: Date.new(2016,9,10) )
 
-Memory.create(
+PersonMemory.create(
+  person_id: little_jimmy.id,
+  memory_id: mem.id
+)
+
+mem = Memory.create(
   user_id: user.id,
-  person_id: little_suzie.id,
   title: "Suzie turned over",
   body: "Suzie turned herself over for the first time.",
   memory_date: Date.new(2017,2,10) )
+
+PersonMemory.create(
+  person_id: little_suzie.id,
+  memory_id: mem.id
+)

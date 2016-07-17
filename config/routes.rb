@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'devise/registrations#new'
+  resources :memories
+  resources :people
+  resources :relationships
+
+  root to: 'memories#index'
 end

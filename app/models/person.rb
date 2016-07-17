@@ -1,5 +1,6 @@
 class Person < ApplicationRecord
-  has_many :memories
+  has_many :person_memories
+  has_many :memories, through: :person_memories
 
   has_many :relationship_memberships, foreign_key: :person_id, class_name: "RelationshipMember"
   has_many :relationships, through: :relationship_memberships

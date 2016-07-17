@@ -10,21 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715174758) do
+ActiveRecord::Schema.define(version: 20160717164548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "memories", force: :cascade do |t|
     t.integer  "user_id",     null: false
-    t.integer  "person_id",   null: false
     t.string   "title",       null: false
     t.text     "body"
     t.date     "memory_date", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["memory_date"], name: "index_memories_on_memory_date", using: :btree
-    t.index ["person_id"], name: "index_memories_on_person_id", using: :btree
     t.index ["user_id"], name: "index_memories_on_user_id", using: :btree
   end
 
@@ -39,6 +37,14 @@ ActiveRecord::Schema.define(version: 20160715174758) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["birth_date"], name: "index_people_on_birth_date", using: :btree
+  end
+
+  create_table "person_memories", force: :cascade do |t|
+    t.integer  "person_id",  null: false
+    t.integer  "memory_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id", "memory_id"], name: "index_person_memories_on_person_id_and_memory_id", unique: true, using: :btree
   end
 
   create_table "relationship_members", force: :cascade do |t|
