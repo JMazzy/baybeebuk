@@ -1,4 +1,4 @@
-relation_types = [ "parental", "adoptive", "peer", "spousal" ]
+relation_types = [ "biological", "adoptive", "spousal" ]
 
 relation_types.each do |type|
   RelationshipType.create(
@@ -38,16 +38,36 @@ little_suzie = Person.create(
   birth_place: "Austin, TX",
   gender: "F")
 
-Relationship.create(
+foo_kid1 = Relationship.create(
+  relationship_type_id: RelationshipType.find_or_create_by( name: "biological" ).id
+)
+foo_kid2 = Relationship.create(
+  relationship_type_id: RelationshipType.find_or_create_by( name: "biological" ).id
+)
+
+RelationshipMember.create(
+  relationship_id: foo_kid1.id,
   person_id: person.id,
-  relation_id: little_suzie.id,
-  relationship_title: "daughter",
-  relationship_type: "biological" )
-Relationship.create(
+  role: "father"
+)
+
+RelationshipMember.create(
+  relationship_id: foo_kid1.id,
+  person_id: little_jimmy.id,
+  role: "son"
+)
+
+RelationshipMember.create(
+  relationship_id: foo_kid2.id,
   person_id: person.id,
-  relation_id: little_jimmy.id,
-  relationship_title: "son",
-  relationship_type: "biological" )
+  role: "father"
+)
+
+RelationshipMember.create(
+  relationship_id: foo_kid2.id,
+  person_id: little_suzie.id,
+  role: "daughter"
+)
 
 Memory.create(
   user_id: user.id,

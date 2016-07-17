@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 20160715174758) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["type_id"], name: "index_relationships_on_type_id", using: :btree
+    t.integer  "relationship_type_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["relationship_type_id"], name: "index_relationships_on_relationship_type_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
