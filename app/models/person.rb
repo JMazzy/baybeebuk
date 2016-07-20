@@ -1,4 +1,5 @@
 class Person < ApplicationRecord
+  has_one :user
   has_many :person_memories
   has_many :memories, through: :person_memories
 
@@ -9,6 +10,12 @@ class Person < ApplicationRecord
 
   def full_name
     "#{self.first_name} #{self.middle_name} #{self.last_name}"
+  end
+
+  def weight_pounds
+    pounds = self.birth_weight.floor
+    ounces = ( 16 * ( self.birth_weight - pounds ) ).round
+    "#{ pounds } pounds, #{ ounces } ounces"
   end
 
   def relatives
@@ -29,5 +36,17 @@ class Person < ApplicationRecord
   def children
     self.relatives
     .where( "relationship_members.role = 'daughter' OR relationship_members.role = 'son'")
+  end
+
+  def user?
+    !!self.user
+  end
+
+  def memories_about?
+    self.memories.count != 0
+  end
+
+  def memories_created?
+    self.user? && self.user.memories.count != 0
   end
 end

@@ -1,16 +1,9 @@
 <h2><%= @person.full_name %></h2>
 
-<h3>Memories About <%= @person.first_name %></h3>
-<% @person.memories.each do |memory| %>
+<p>
+  Born <%= formatted_date( @person.birth_date ) %> in <%= @person.birth_place %>, weighing <%= @person.weight_pounds %>.
+</p>
 
-  <h4><%= memory.title %></h4>
+<%= memories_created( @person ) %>
 
-  <p class="memdate">
-    <%= memory.formatted_date %>
-  </p>
-
-  <p>
-    <%= memory.body %>
-  </p>
-
-<% end %>
+<%= memories_about( @person ) %>

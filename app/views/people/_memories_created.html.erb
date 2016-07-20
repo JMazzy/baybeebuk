@@ -1,0 +1,3 @@
+<h3>Memories Created By <%= person.first_name %></h3>
+
+<%= render partial: "memories/memory", collection: person.user.memories %>

@@ -2,22 +2,6 @@
 
 <% @memories.each do |memory| %>
 
-  <a href="<%= memory_path( memory ) %>">
-    <h3><%= memory.title %></h3>
-  </a>
-
-  <% memory.people.each do |person| %>
-    <a href="<%= person_path( person )%>">
-      <span class="person"><%= person.first_name %> <%= person.last_name %></span>
-    </a>
-  <% end %>
-
-  <p class="memdate">
-    <%= memory.formatted_date %>
-  </p>
-
-  <p class="membody">
-    <%= memory.body %>
-  </p>
+  <%= render partial: "memory", locals: { memory: memory } %>
 
 <% end %>

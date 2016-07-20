@@ -10,4 +10,8 @@ module ApplicationHelper
       return rails_flash
     end
   end
+
+  def formatted_date(date)
+    date.strftime("%B %e, %Y")
+  end
 end
