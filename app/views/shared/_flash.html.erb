@@ -1,0 +1,5 @@
+<% flash.each do |flash_type, flash_message| %>
+  <p class="<%= rails_flash_to_bootstrap_class( flash_type ) %>">
+    <%= flash_message %>
+  </p>
+<% end %>

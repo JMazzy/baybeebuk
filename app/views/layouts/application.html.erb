@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Baybeebuk</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render partial: "shared/head" %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <header>
+      <%= render partial: "shared/header" %>
+    </header>
+
+    <main class="container">
+
+      <%= render partial: "shared/flash" %>
+
+      <%= yield %>
+
+      <%= render partial: "shared/links" %>
+
+    </main>
+
+    <footer>
+      <%= render partial: "shared/footer" %>
+    </footer>
+
   </body>
+
 </html>

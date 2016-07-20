@@ -1,6 +1,7 @@
 class MemoriesController < ApplicationController
   def index
     @memories = current_user.memories
+    flash["notice"] = "testing"
   end
 
   def show
