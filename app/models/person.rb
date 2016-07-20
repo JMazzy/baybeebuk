@@ -7,6 +7,10 @@ class Person < ApplicationRecord
   has_many :relationship_types, through: :relationships
   has_many :related_people, through: :relationships, class_name: "Person", foreign_key: :person_id, source: :people
 
+  def full_name
+    "#{self.first_name} #{self.middle_name} #{self.last_name}"
+  end
+
   def relatives
     self.related_people
     .where( "people.id != #{self.id}" )

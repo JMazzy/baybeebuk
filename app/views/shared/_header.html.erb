@@ -1,9 +1,31 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="<%= root_path %>">
         BayBeeBuk
       </a>
+    </div>
+
+    <div class="navbar-right">
+
+      <% if user_signed_in? %>
+
+        <%= link_to current_user.person.full_name, person_path( current_user.person ), class: "navbar-text" %>
+
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-text" %>
+
+      <% else %>
+
+        <a href="<%= new_user_session_path %>" class="btn btn-primary navbar-btn">
+          Sign In
+        </a>
+
+        <a href="<%= new_user_registration_path %>" class="btn btn-info navbar-btn">
+          Sign Up
+        </a>
+
+      <% end %>
+
     </div>
   </div>
 </nav>

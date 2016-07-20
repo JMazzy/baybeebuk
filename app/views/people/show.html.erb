@@ -1,9 +1,12 @@
+<h2><%= @person.full_name %></h2>
+
+<h3>Memories About <%= @person.first_name %></h3>
 <% @person.memories.each do |memory| %>
 
-  <h3><%= memory.title %></h3>
+  <h4><%= memory.title %></h4>
 
   <p class="memdate">
-    <%= memory.memory_date %>
+    <%= memory.formatted_date %>
   </p>
 
   <p>
