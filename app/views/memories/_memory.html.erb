@@ -1,19 +1,24 @@
-<div class="memory">
-  <a href="<%= memory_path( memory ) %>">
-    <h4><%= memory.title %></h4>
-  </a>
-
-  <% memory.people.each do |person| %>
-    <a href="<%= person_path( person )%>">
-      <span class="person"><%= person.first_name %> <%= person.last_name %></span>
+<div class="memory card">
+  <div class="card-block">
+    <a href="<%= memory_path( memory ) %>" class="card-title">
+      <h4><%= memory.title %></h4>
     </a>
-  <% end %>
 
-  <p class="memdate">
-    <%= formatted_date( memory.memory_date ) %>
-  </p>
+    <div class="card-text">
+      <% memory.people.each do |person| %>
+        <a href="<%= person_path( person )%>">
+          <span class="person"><%= person.first_name %> <%= person.last_name %></span>
+        </a>
+      <% end %>
 
-  <p class="membody">
-    <%= memory.body %>
-  </p>
+      <p class="memdate">
+        <%= formatted_date( memory.memory_date ) %>
+      </p>
+
+      <p class="membody">
+        <%= memory.body %>
+      </p>
+    </div>
+  </div>
+
 </div>
