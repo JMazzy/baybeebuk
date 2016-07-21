@@ -4,7 +4,7 @@ gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
@@ -32,3 +32,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
