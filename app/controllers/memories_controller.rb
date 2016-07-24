@@ -12,7 +12,7 @@ class MemoriesController < ApplicationController
   end
 
   def create
-    @memory = Memory.new( memory_params )
+    @memory = current_user.build_memory( memory_params )
     if @memory.save
       flash[:success] = "Memory created successfully."
       redirect to: memory_path( @memory )

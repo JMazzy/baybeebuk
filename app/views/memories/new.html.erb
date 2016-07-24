@@ -1,0 +1,18 @@
+<%= form_for @memory do |memory_fields| %>
+  <div class="form-group">
+    <%= memory_fields.label "Memory Date" %>
+    <%= memory_fields.date_field :memory_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= memory_fields.label "Title" %>
+    <%= memory_fields.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= memory_fields.label "Body" %>
+    <%= memory_fields.text_area :body, class: "form-control" %>
+  </div>
+
+  <%= memory_fields.submit "Submit", class: "btn btn-primary-outline" %>
+<% end %>
