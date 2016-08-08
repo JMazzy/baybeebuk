@@ -1,5 +1,9 @@
-<% flash.each do |flash_type, flash_message| %>
-  <p class="alert alert-<%= rails_flash_to_bootstrap_class( flash_type ) %>">
-    <%= flash_message %>
-  </p>
-<% end %>
+<div class="row flash-messages">
+  <div class="col-xs-12">
+    <% flash.each do |flash_type, flash_message| %>
+      <p class="alert alert-<%= rails_flash_to_bootstrap_class( flash_type ) %>">
+        <%= flash_message %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -15,3 +15,5 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+/vendor/bootstrap-4.0.0-alpha.3/*

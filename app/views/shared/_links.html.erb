@@ -1,7 +1,13 @@
-<p>
-  <%= link_to "All My Memories", memories_path %>
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to "All My Memories", memories_path %>
+      </p>
 
-<p>
-  <%= link_to "New Memory", new_memory_path %>
-</p>
+      <p>
+        <%= link_to "New Memory", new_memory_path %>
+      </p>
+    <% end %>
+  </div>
+</div>
