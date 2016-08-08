@@ -32,6 +32,7 @@ body {
 
 .navbar-brand {
   font-size: 2.5rem;
+  text-shadow: 2px 2px 2px #222;
 }
 
 .jumbotron {
@@ -43,5 +44,5 @@ body {
 }
 
 body {
-  background-color: $scheme-gray;
+  background-color: $scheme-gray-lightest;
 }
